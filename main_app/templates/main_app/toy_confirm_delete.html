@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Are you sure you want to remove this toy -> {{ object.name}}?</h1> 
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Yes - Remove" class="btn red">
+    <a href="{% url 'toys_detail' object.id %}" class="btn blue">Cancel</a>
+</form>
+
+{% endblock %}
